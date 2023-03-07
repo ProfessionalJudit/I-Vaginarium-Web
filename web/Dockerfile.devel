@@ -1,4 +1,1 @@
-FROM trenchsoftware/php-smarty
-COPY . /usr/src/ivaginarium
-WORKDIR /usr/src/ivaginarium
-CMD [ "php", "./index.php" ]
+FROM trenchsoftware/php-smarty:latest
