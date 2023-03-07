@@ -2,11 +2,9 @@ version: '3.1'
 
 services:
   ivaginarium-web:
-    build:
-      context: ./web
-      dockerfile: Dockerfile.devel
+    image: trenchsoftware/php-smarty:latest
     container_name: ivaginarium-web-devel
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - ./web/:/var/www/html
