@@ -9,4 +9,4 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./web/:/var/www/html trenchsoftware/php-smarty
+      - ./web/:/var/www/html
