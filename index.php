@@ -9,3 +9,4 @@ $smarty->setConfigDir('./web/configs');
 
 $smarty->assign('name', 'Ivaginarium');
 $smarty->display('index.tpl');
+?>
