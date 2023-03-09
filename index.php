@@ -1,39 +1,40 @@
 <?php
 require('/usr/local/lib/php/Smarty/Smarty.class.php');
+//Create new Smarty
 $smarty = new Smarty();
 
+//Clear cache, i disturbs my development >:v
+$smarty->clearAllCache();
+
+//Set dirs
 $smarty->setTemplateDir('./web/templates');
 $smarty->setCompileDir('./web/templates_c');
 $smarty->setCacheDir('./web/cache');
 $smarty->setConfigDir('./web/configs');
 
-if (empty($_GET[page])) {
+//Name page
+$smarty->assign('name', 'Ivaginarium');
+
+//Switch subpages
+if (empty($_GET["page"])) {
+    //Set template to be used and content to be inserted
     $template = "index.tpl";
-    $smarty->assign('name', 'Ivaginarium');
+    $content = "home.tpl";
 } else {
     $page = $_GET["page"];
     switch ($page) {
         case "home":
+            //Set template to be used and content to be inserted
             $template = "index.tpl";
-            $smarty->assign('name', 'Ivaginarium');
+            $content = "home.tpl";
             break;
-
-        case "test":
-            $template = "index.tpl";
-            $smarty->assign('name', 'Test ');
-            break;
-
-        case "test2":
-            $template = "index.tpl";
-            $smarty->assign('name', 'Test 2');
-            break;
-
         default:
+            //Set template to be used and content to be inserted
             $template = "404.tpl";
             break;
     }
 }
-
-
+//Assign content and template to samrty
+$smarty->assign("content", $content);
 $smarty->display($template);
 ?>
